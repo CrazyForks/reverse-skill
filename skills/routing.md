@@ -47,6 +47,9 @@
 | "打开网页/浏览器自动化/填表" | `browser-automation/SKILL.md` — Playwright 浏览器操作 |
 | "爬取页面/截图/自动化登录" | `browser-automation/SKILL.md` — 浏览器自动化 |
 | "Playwright / headless" | `browser-automation/SKILL.md` — 浏览器自动化 |
+| "操作桌面应用/Windows 自动化" | `browser-automation/SKILL.md` — OpenReverse 桌面自动化 |
+| "UIA/CUA/桌面 GUI 操作" | `browser-automation/SKILL.md` — OpenReverse（UIA/CUA 模式） |
+| "OpenReverse" | `browser-automation/SKILL.md` — 桌面交互 + 网络观察 |
 | "游戏逆向/反作弊/外挂分析" | `game-security/SKILL.md` — 游戏安全逆向 |
 | "Unity/IL2CPP/Mono" | `game-security/SKILL.md` — Unity 游戏逆向 |
 | "Unreal Engine/UE 逆向" | `game-security/SKILL.md` — UE 游戏逆向 |
@@ -69,7 +72,8 @@
 | BinDiff / Diaphora | `reverse-engineering/tools-advanced.md` |
 | anything-analyzer MCP | 端口 23816 的 MCP 服务器（浏览器+HTTP 捕获+AI 分析） |
 | jshookmcp | `js-reverse/` 的补强 MCP 面，适合浏览器/CDP/Hook/Network/SourceMap/AST 场景；需要先下载并在 MCP 客户端里启用 |
-| agent-browser / Playwright | `browser-automation/` — 通用浏览器自动化（打开、点击、填表、爬取、截图） |
+| agent-browser / Playwright | `browser-automation/` — 浏览器自动化（打开、点击、填表、爬取、截图） |
+| OpenReverse (UIA/CUA) | `browser-automation/` — Windows 桌面应用自动化 + 网络观察（mitmproxy） |
 | Cheat Engine / x64dbg / ReClass | `game-security/` — 游戏内存分析、调试 |
 | IL2CPP Dumper / dnSpy | `game-security/` — Unity/Mono 游戏逆向 |
 | DynamoRIO / Pin / TinyInst | `game-security/` — DBI 框架（游戏场景） |

@@ -13,7 +13,7 @@
 | **radare2 分析** | `radare2/` | CLI 二进制侦察、反汇编、patch：r2 / rabin2 / rasm2 / radiff2 |
 | **CTF 竞赛全栈** | `../CTF-Sandbox-Orchestrator/` | 40+ 子技能：Web/逆向/Pwn/云/容器/AD/取证/隐写/移动端/密码学，由总控统一编排 |
 | **技术文档编写** | `docs-generator/` | 任务完成后自动生成逆向报告、渗透报告、CTF writeup、签名逆向报告 |
-| **浏览器自动化** | `browser-automation/` | 打开页面、点击、填表、爬取、截图、自动化登录、渗透页面交互（Playwright） |
+| **浏览器与桌面自动化** | `browser-automation/` | 浏览器操作（Playwright）+ Windows 桌面应用操作（OpenReverse UIA/CUA）+ 网络观察 |
 | **游戏安全逆向** | `game-security/` | 游戏反作弊分析、Unity/UE 逆向、内存扫描、IL2CPP、DBI 框架、游戏保护壳 |
 | **跨版本符号迁移** | `binary-diff/` | 有旧版符号迁移到新版、缺 PDB 推导、程序更新后批量迁移函数名 |
 
