@@ -21,6 +21,7 @@ inclusion: auto
 - 浏览器自动化、打开网页、填表、爬取、截图、自动化登录、Playwright、agent-browser、headless、桌面自动化、OpenReverse、UIA、CUA、Windows 自动化、桌面操作
 - 游戏逆向、反作弊、Cheat Engine、Unity、IL2CPP、Unreal Engine、x64dbg、游戏安全、game hacking、anti-cheat、EAC、BattlEye
 - 符号迁移、bindiff、跨版本、PDB 缺失、函数偏移迁移、symbol migration、版本对比、旧版符号
+- 端口扫描、Nmap、漏洞扫描、Nuclei、SQL 注入、SQLMap、目录爆破、FFUF、密码破解、Hashcat、Hydra、Metasploit、Impacket、pentestMCP
 
 ## 路由入口（相对于本包根目录，按顺序读取）
 

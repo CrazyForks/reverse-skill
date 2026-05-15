@@ -57,6 +57,12 @@
 | "符号迁移/跨版本对比" | `binary-diff/SKILL.md` — LLM 批量符号迁移 |
 | "缺 PDB/旧版符号推导新版" | `binary-diff/SKILL.md` — 跨版本符号迁移 |
 | "bindiff/函数偏移迁移" | `binary-diff/SKILL.md` — 二进制差分 |
+| "端口扫描/Nmap" | `pentest-tools/SKILL.md` — 信息收集 |
+| "漏洞扫描/Nuclei" | `pentest-tools/SKILL.md` — 漏洞检测 |
+| "SQL 注入/SQLMap" | `pentest-tools/SKILL.md` — Web 渗透 |
+| "目录爆破/FFUF/Gobuster" | `pentest-tools/SKILL.md` — Web 渗透 |
+| "密码破解/Hashcat" | `pentest-tools/SKILL.md` — 密码破解 |
+| "渗透测试/主动扫描" | `pentest-tools/SKILL.md` — 渗透工具链 |
 
 ## 按工具链
 
@@ -78,6 +84,12 @@
 | IL2CPP Dumper / dnSpy | `game-security/` — Unity/Mono 游戏逆向 |
 | DynamoRIO / Pin / TinyInst | `game-security/` — DBI 框架（游戏场景） |
 | LLM 符号迁移 / BinDiff 替代 | `binary-diff/` — 跨版本符号批量迁移（DeepSeek/GPT） |
+| Nmap / Masscan | `pentest-tools/` — 端口扫描、服务识别 |
+| Nuclei / ZAP / Nikto | `pentest-tools/` — 漏洞扫描 |
+| SQLMap / FFUF / Gobuster | `pentest-tools/` — Web 渗透（注入/爆破） |
+| Hashcat / John / Hydra | `pentest-tools/` — 密码破解 |
+| Metasploit / Impacket | `pentest-tools/` — 利用框架 |
+| pentestMCP (Docker) | `pentest-tools/` — 20+ 工具一键 MCP |
 
 需要确认本机工具是否可用、路径在哪里、哪个脚本会调用它时，统一查看 `tool-index.md`，不要临时猜路径。
 
