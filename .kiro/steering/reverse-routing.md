@@ -20,6 +20,7 @@ inclusion: auto
 - 写报告、写文档、出报告、writeup、技术文档、渗透报告、逆向报告
 - 浏览器自动化、打开网页、填表、爬取、截图、自动化登录、Playwright、agent-browser、headless
 - 游戏逆向、反作弊、Cheat Engine、Unity、IL2CPP、Unreal Engine、x64dbg、游戏安全、game hacking、anti-cheat、EAC、BattlEye
+- 符号迁移、bindiff、跨版本、PDB 缺失、函数偏移迁移、symbol migration、版本对比、旧版符号
 
 ## 路由入口（相对于本包根目录，按顺序读取）
 
