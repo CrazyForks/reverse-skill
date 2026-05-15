@@ -63,6 +63,9 @@
 | "目录爆破/FFUF/Gobuster" | `pentest-tools/SKILL.md` — Web 渗透 |
 | "密码破解/Hashcat" | `pentest-tools/SKILL.md` — 密码破解 |
 | "渗透测试/主动扫描" | `pentest-tools/SKILL.md` — 渗透工具链 |
+| "画图/流程图/架构图/攻击路径图" | `diagram-generator/SKILL.md` — 图表生成 |
+| "时序图/状态图/ER图/数据流图" | `diagram-generator/SKILL.md` — Mermaid/Graphviz/PlantUML |
+| "Mermaid/Graphviz/PlantUML" | `diagram-generator/SKILL.md` — 图表生成 |
 
 ## 按工具链
 
@@ -90,6 +93,7 @@
 | Hashcat / John / Hydra | `pentest-tools/` — 密码破解 |
 | Metasploit / Impacket | `pentest-tools/` — 利用框架 |
 | pentestMCP (Docker) | `pentest-tools/` — 20+ 工具一键 MCP |
+| Mermaid / Graphviz / PlantUML | `diagram-generator/` — 图表生成（流程图/时序图/架构图/攻击路径） |
 
 需要确认本机工具是否可用、路径在哪里、哪个脚本会调用它时，统一查看 `tool-index.md`，不要临时猜路径。
 

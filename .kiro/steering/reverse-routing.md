@@ -22,6 +22,7 @@ inclusion: auto
 - 游戏逆向、反作弊、Cheat Engine、Unity、IL2CPP、Unreal Engine、x64dbg、游戏安全、game hacking、anti-cheat、EAC、BattlEye
 - 符号迁移、bindiff、跨版本、PDB 缺失、函数偏移迁移、symbol migration、版本对比、旧版符号
 - 端口扫描、Nmap、漏洞扫描、Nuclei、SQL 注入、SQLMap、目录爆破、FFUF、密码破解、Hashcat、Hydra、Metasploit、Impacket、pentestMCP
+- 画图、流程图、架构图、攻击路径图、时序图、状态图、数据流图、Mermaid、Graphviz、PlantUML、diagram
 
 ## 路由入口（相对于本包根目录，按顺序读取）
 
@@ -65,7 +66,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "<本包根目录>/skills/sc
 8. 如果缺工具 → 调用 bootstrap-reverse.ps1 自动补齐
 9. 如果自动补齐失败 → 输出结构化引导（含手动步骤），等用户确认后继续
 10. 进入对应 skill 的工作流 → 执行任务
-11. 任务完成 → 调用 docs-generator skill，在用户项目目录生成技术文档/报告
+11. 任务完成 → 调用 docs-generator skill 生成报告（含 diagram-generator 生成的攻击路径图/数据流图等可视化图表）
 12. 自动回写 field-journal/
 13. 更新 _index.md → 检查是否需要更新路由/索引/manifest → 执行更新
 14. 输出最终结果

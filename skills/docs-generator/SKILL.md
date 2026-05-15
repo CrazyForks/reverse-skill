@@ -47,6 +47,19 @@ For writing style, tone, and voice guidance, use `Skill(ce:writer)` with **The E
 - 复现步骤必须让第三方能独立重现
 - 敏感信息（真实 token、密码、内部 URL）用占位符替代
 
+### 图表集成
+
+生成报告时，应在适当位置调用 `diagram-generator` skill 生成可视化图表：
+
+| 报告类型 | 建议图表 | 图表类型 |
+|---------|---------|---------|
+| 逆向工程报告 | 函数调用关系图、数据流图 | Mermaid flowchart / sequenceDiagram |
+| 渗透测试报告 | 攻击路径图、网络拓扑图 | Mermaid flowchart / Graphviz |
+| CTF Writeup | 解题思路流程图 | Mermaid flowchart |
+| JS 签名逆向报告 | 请求链路时序图、算法流程图 | Mermaid sequenceDiagram / flowchart |
+
+图表以 Mermaid 代码块形式嵌入报告 markdown 中，确保可在 GitHub/GitLab 直接渲染。
+
 ---
 
 ## Core Principles
