@@ -40,7 +40,11 @@ if ([string]::IsNullOrWhiteSpace($IdaDir)) {
 $env:IDADIR = $IdaDir
 
 if ([string]::IsNullOrWhiteSpace($ServerPath)) {
-    $resolved = Get-Command idalib-mcp -ErrorAction SilentlyContinue
+    # Try both possible executable names (ida-pro-mcp is the PyPI package 'ida-mcp')
+    $resolved = Get-Command ida-pro-mcp -ErrorAction SilentlyContinue
+    if (-not $resolved) {
+        $resolved = Get-Command idalib-mcp -ErrorAction SilentlyContinue
+    }
     if ($resolved) {
         $ServerPath = $resolved.Source
     }
@@ -48,7 +52,10 @@ if ([string]::IsNullOrWhiteSpace($ServerPath)) {
         $roamingPython = Join-Path $env:APPDATA 'Python'
         if (Test-Path -LiteralPath $roamingPython) {
             $candidate = Get-ChildItem -LiteralPath $roamingPython -Directory -ErrorAction SilentlyContinue |
-                ForEach-Object { Join-Path $_.FullName 'Scripts\idalib-mcp.exe' } |
+                ForEach-Object {
+                    $scripts = Join-Path $_.FullName 'Scripts'
+                    @('ida-pro-mcp.exe', 'idalib-mcp.exe') | ForEach-Object { Join-Path $scripts $_ }
+                } |
                 Where-Object { Test-Path -LiteralPath $_ } |
                 Select-Object -First 1
             if ($candidate) {
@@ -58,13 +65,16 @@ if ([string]::IsNullOrWhiteSpace($ServerPath)) {
     }
 }
 
-# Auto-bootstrap idalib-mcp if still not found
+# Auto-bootstrap if still not found
 if ([string]::IsNullOrWhiteSpace($ServerPath)) {
     $bootstrapScript = Join-Path $PSScriptRoot '..\..\scripts\bootstrap-reverse.ps1'
     if (Test-Path -LiteralPath $bootstrapScript) {
-        Write-Output "INFO: idalib-mcp not found, attempting auto-bootstrap (pip install idalib-mcp)..."
+        Write-Output "INFO: ida-pro-mcp not found, attempting auto-bootstrap (pip install ida-mcp)..."
         & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $bootstrapScript -Capability @('idalib-mcp') -SkipRefresh
-        $resolved = Get-Command idalib-mcp -ErrorAction SilentlyContinue
+        $resolved = Get-Command ida-pro-mcp -ErrorAction SilentlyContinue
+        if (-not $resolved) {
+            $resolved = Get-Command idalib-mcp -ErrorAction SilentlyContinue
+        }
         if ($resolved) {
             $ServerPath = $resolved.Source
         }
@@ -72,7 +82,10 @@ if ([string]::IsNullOrWhiteSpace($ServerPath)) {
             $roamingPython = Join-Path $env:APPDATA 'Python'
             if (Test-Path -LiteralPath $roamingPython) {
                 $candidate = Get-ChildItem -LiteralPath $roamingPython -Directory -ErrorAction SilentlyContinue |
-                    ForEach-Object { Join-Path $_.FullName 'Scripts\idalib-mcp.exe' } |
+                    ForEach-Object {
+                        $scripts = Join-Path $_.FullName 'Scripts'
+                        @('ida-pro-mcp.exe', 'idalib-mcp.exe') | ForEach-Object { Join-Path $scripts $_ }
+                    } |
                     Where-Object { Test-Path -LiteralPath $_ } |
                     Select-Object -First 1
                 if ($candidate) {
@@ -84,11 +97,12 @@ if ([string]::IsNullOrWhiteSpace($ServerPath)) {
 }
 
 if ([string]::IsNullOrWhiteSpace($ServerPath)) {
-    throw 'Missing required CLI tool: idalib-mcp — auto-bootstrap failed. Install manually: pip install idalib-mcp'
+    throw 'Missing required CLI tool: ida-pro-mcp — auto-bootstrap failed. Install manually: pip install ida-mcp'
 }
 
 # 清理旧进程（杀进程树，包括 worker 子进程）
-$old = Get-Process -Name "idalib-mcp" -ErrorAction SilentlyContinue
+$old = Get-Process -Name "ida-pro-mcp" -ErrorAction SilentlyContinue
+if (-not $old) { $old = Get-Process -Name "idalib-mcp" -ErrorAction SilentlyContinue }
 if ($old) { taskkill /F /T /PID $old.Id 2>$null | Out-Null; Start-Sleep 2 }
 
 # 后台启动

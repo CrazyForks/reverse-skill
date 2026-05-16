@@ -40,10 +40,10 @@
     {
       "name": "idalib-mcp",
       "bootstrapKind": "pip-package",
-      "pipPackage": "idalib-mcp",
-      "docsUrl": "https://github.com/mrexodia/idalib-mcp",
+      "pipPackage": "ida-mcp",
+      "docsUrl": "https://github.com/mrexodia/ida-pro-mcp",
       "canAutoInstall": true,
-      "verifyCommand": "idalib-mcp"
+      "verifyCommand": "ida-pro-mcp"
     },
     {
       "name": "jshookmcp",

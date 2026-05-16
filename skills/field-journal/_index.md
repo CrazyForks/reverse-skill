@@ -7,6 +7,7 @@
 ## 按场景分类
 
 ### APK 逆向
+- [2026-05-15] Cellular-Pro MuMu 闪退修复 — 关键词: APK, MuMu, KSAd, Kuaishou, fragment生命周期, SuperNotCalledException
 <!-- 格式: - [YYYY-MM-DD] 项目简称 — 关键词: keyword1, keyword2, keyword3 -->
 
 ### JS 签名 / Web 逆向
@@ -43,7 +44,7 @@
 
 ## 累计统计
 
-- 总项目数: 5（含 4 个种子 + 1 个真实项目）
-- 新增模式数: 8
+- 总项目数: 6（含 4 个种子 + 2 个真实项目）
+- 新增模式数: 9
 - 工具链修复数: 0
 - 最近更新: 2026-05-15
