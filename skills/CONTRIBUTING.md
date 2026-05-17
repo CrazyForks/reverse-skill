@@ -180,27 +180,77 @@ if (-not $spec.Available) {
 
 完成上述步骤后，运行：
 
+**Windows**：
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File "<SKILL_ROOT>\scripts\refresh-tool-index.ps1"
+```
+
+**Kali Linux**：
+```bash
+bash "<项目根目录>/kali/scripts/refresh-tool-index.sh"
 ```
 
 确认新工具出现在 `tool-index.md` 和 `tool-index.json` 中。
 
 ---
 
-## 7. 验证清单
+## 7. Kali 平台同步（如果项目支持双平台）
+
+新增 skill 后，如果项目包含 `kali/` 目录，还需要同步更新 Kali 版本：
+
+### 7.1 在 Kali manifest 中注册
+
+打开 `kali/scripts/bootstrap-manifest.json`，添加对应条目（`bootstrapKind` 通常为 `apt-package` 或 `pip-package`）。
+
+### 7.2 在 Kali tool-discovery.sh 中注册
+
+打开 `kali/scripts/lib/tool-discovery.sh`，在 `TOOL_CATALOG` 数组中添加：
+
+```bash
+"<tool-name>|<skill-name>|<中文用途>|<version-args>|<fallback-commands>"
+```
+
+在 `SCRIPT_REFS` 中添加：
+
+```bash
+["<tool-name>"]="<skill-name>/SKILL.md"
+```
+
+### 7.3 在 Kali bootstrap 脚本中添加安装逻辑
+
+打开 `kali/scripts/bootstrap-reverse.sh`，在 `ensure_capability()` 的 `case` 中添加新工具的安装逻辑。
+
+### 7.4 更新 Kali RULES 触发关键词
+
+打开 `kali/RULES-kali.md`，在触发关键词列表中添加新 skill 相关的词。
+
+---
+
+## 8. 验证清单
 
 新增 skill 后，逐项确认：
 
+**通用（必须）**：
 - [ ] `<new-skill>/SKILL.md` 存在且包含所有必需章节
-- [ ] 路由矩阵已更新，能正确路由到新 skill
+- [ ] 路由矩阵（`routing.md`）已更新，能正确路由到新 skill
 - [ ] 根 `SKILL.md` 的模块表已更新
-- [ ] `bootstrap-manifest.json` 已注册新工具（如果有可自动安装的工具）
-- [ ] `ToolDiscovery.ps1` 已注册新工具（含 fallback path）
-- [ ] `refresh-tool-index.ps1` 的 `$scriptRefs` 已更新
+- [ ] `.kiro/steering/reverse-routing.md` 触发关键词已更新（如果使用 Kiro）
+- [ ] `RULES.md` 触发关键词已更新
+
+**Windows 平台**：
+- [ ] `scripts/bootstrap-manifest.json` 已注册新工具
+- [ ] `scripts/lib/ToolDiscovery.ps1` 已注册新工具（含 fallback path）
+- [ ] `scripts/refresh-tool-index.ps1` 的 `$scriptRefs` 已更新
+
+**Kali 平台（如果有 kali/ 目录）**：
+- [ ] `kali/scripts/bootstrap-manifest.json` 已注册新工具
+- [ ] `kali/scripts/lib/tool-discovery.sh` 的 `TOOL_CATALOG` 和 `SCRIPT_REFS` 已更新
+- [ ] `kali/scripts/bootstrap-reverse.sh` 的 `ensure_capability()` 已添加安装逻辑
+- [ ] `kali/RULES-kali.md` 触发关键词已更新
+
+**通用（继续）**：
 - [ ] 入口脚本已接入 bootstrap（缺工具时自动补齐）
-- [ ] 运行 `refresh-tool-index.ps1` 后新工具出现在索引中
-- [ ] Kiro steering 关键词已更新（如果使用 Kiro）
+- [ ] 运行 refresh-tool-index 后新工具出现在索引中
 
 ---
 

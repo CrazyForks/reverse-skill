@@ -20,6 +20,7 @@
 
 ### 渗透测试
 - [种子] Web API 未授权访问+IDOR — 关键词: REST API, IDOR, 越权, Swagger暴露, FFUF
+- [2026-05-16] personalblog.fun Mass Assignment 提权 — 关键词: Spring Boot, MyBatis-Plus, SaToken, Mass Assignment, Swagger泄露, 权限提升, Vue SPA, temp mail, JS静态分析, 前端路由绕过, DTO缺失, 限速绕过
 
 ### CTF
 <!-- 格式: - [YYYY-MM-DD] 项目简称 — 关键词: keyword1, keyword2, keyword3 -->
@@ -42,9 +43,15 @@
 
 ---
 
+## 高频踩坑新增
+
+6. Swagger Knife4j 页面是交互式攻击面板 — 不要只看 JSON，`/doc.html` 页面提供"在线调试"功能，可直接在页面试用任意 API
+7. Spring Boot Mass Assignment 通常隐藏在建表脚本可以看到所有字段，而 Controller 直接收 Entity 的地方
+8. IP 被限速后不要硬等 — 转做 JS 静态分析，前端 bundle 包含完整 API 端点清单和请求参数格式
+
 ## 累计统计
 
-- 总项目数: 6（含 4 个种子 + 2 个真实项目）
-- 新增模式数: 9
+- 总项目数: 7（含 4 个种子 + 3 个真实项目）
+- 新增模式数: 11
 - 工具链修复数: 0
-- 最近更新: 2026-05-15
+- 最近更新: 2026-05-16

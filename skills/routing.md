@@ -33,6 +33,7 @@
 | 用户说 | 可以参考 |
 |--------|---------|
 | "反编译/IDA 看一下" | `ida-reverse/SKILL.md` — IDA MCP 工作流 |
+| "还原源码/还原为汇编/逆向还原" | `reverse-engineering/SKILL.md` — 通用逆向 + `ida-reverse/` 或 capstone 静态反汇编 |
 | "Frida hook 一下/动态注入" | `reverse-engineering/tools-dynamic.md` — Frida 章节 |
 | "radare2 / r2 分析" | `radare2/SKILL.md` — CLI 工作流 |
 | "找前端签名/加密参数" | `js-reverse/SKILL.md` — Observe→Capture→Rebuild |
@@ -90,6 +91,44 @@
 | "C2/远控/持久化" | `pentest-tools/references/network-attack-defense.md` — 持久化+C2 |
 | "蓝队/检测/防御/应急响应" | `pentest-tools/references/network-attack-defense.md` — 防御体系 |
 | "APK 安全测试/移动安全" | `apk-reverse/references/apk-security-checklist.md` — OWASP MASTG |
+| "SSTI/模板注入" | `pentest-tools/SKILL.md` — SSTImap 自动检测 |
+| "XSS 扫描/跨站脚本" | `pentest-tools/SKILL.md` — XSStrike 高级扫描 |
+| "WordPress 渗透/WP 枚举" | `pentest-tools/SKILL.md` — WPProbe 插件枚举 |
+| "C2 框架/对抗模拟/红队" | `pentest-tools/SKILL.md` — AdaptixC2 |
+| "Atomic Red Team/检测测试" | `pentest-tools/SKILL.md` — Atomic-Operator |
+| "WiFi 攻击/无线渗透" | `pentest-tools/SKILL.md` — Fluxion + aircrack-ng |
+| "NTLM relay/认证强制" | `pentest-tools/SKILL.md` — Coercer |
+| "WinRM/Windows 远程" | `pentest-tools/SKILL.md` — evil-winrm-py |
+| "NetExec/CrackMapExec/nxc" | `pentest-tools/SKILL.md` — 网络服务枚举 |
+| "AI 自动渗透/MCP 安全" | `pentest-tools/SKILL.md` — HexStrike AI / MetasploitMCP / mcp-kali-server |
+| "Swarm/群体渗透/自主扫描" | `pentest-tools/SKILL.md` — Pentest Swarm AI（pentestswarm scan --swarm） |
+| "Bug Bounty 自动化/持续监控" | `pentest-tools/SKILL.md` — Pentest Swarm AI playbook: bug-bounty |
+| "攻击面管理/ASM" | `pentest-tools/SKILL.md` — Pentest Swarm AI playbook: external-asm |
+| "红队/攻防演练/HW" | `attack-chain/SKILL.md` — 完整攻击链编排（信息收集→突破→提权→横向→维持） |
+| "打点/初始突破/边界突破" | `attack-chain/SKILL.md` — 边界突破阶段 |
+| "近源渗透/BadUSB/WiFi钓鱼" | `attack-chain/SKILL.md` — 近源渗透章节 |
+| "EDR 绕过/免杀/AV bypass" | `attack-chain/SKILL.md` — EDR/AV 绕过章节 |
+| "钓鱼/社工/邮件钓鱼" | `attack-chain/SKILL.md` — 钓鱼攻击章节 |
+| "供应链攻击" | `attack-chain/SKILL.md` — 供应链攻击章节 |
+| "痕迹清理/反取证" | `attack-chain/SKILL.md` — 痕迹清理章节 |
+| "完整渗透测试/全流程" | `attack-chain/SKILL.md` — 全链路规划 |
+| "从外网打到域控/内网" | `attack-chain/SKILL.md` — 跨阶段路径编排 |
+| "攻击面评估/攻击路径规划" | `attack-chain/SKILL.md` — 路径规划决策树 |
+| "拿到 shell 下一步/后渗透" | `attack-chain/SKILL.md` — 从当前据点规划后续 |
+| "内网渗透全流程" | `attack-chain/SKILL.md` — 横向移动 + 提权 + 域攻击 |
+| "Hydra/在线爆破/SSH 爆破" | `pentest-tools/SKILL.md` — 在线密码爆破 |
+| "Nikto/Web 服务器扫描" | `pentest-tools/SKILL.md` — Web 漏洞扫描 |
+| "Metasploit/msfconsole/exploit" | `pentest-tools/SKILL.md` — 利用框架 |
+| "Wireshark/抓包分析/PCAP" | `pentest-tools/SKILL.md` + `reverse-engineering/platforms.md` |
+| "BurpSuite/Web 代理/拦截" | `pentest-tools/SKILL.md` — Web 代理 |
+| "Responder/LLMNR 投毒/NBT-NS" | `pentest-tools/SKILL.md` — 内网投毒 |
+| "BloodHound/AD 路径/攻击图" | `pentest-tools/SKILL.md` — AD 攻击路径可视化 |
+| "Certipy/AD CS/证书攻击" | `pentest-tools/SKILL.md` — AD 证书服务攻击 |
+| "wfuzz/参数模糊/Web Fuzz" | `pentest-tools/SKILL.md` — Web 模糊测试 |
+| "GDB/GEF/调试/断点" | `reverse-engineering/tools.md` — 动态调试 |
+| "objdump/反汇编/ELF 分析" | `reverse-engineering/SKILL.md` — 静态分析 |
+| "strings/字符串提取" | `reverse-engineering/SKILL.md` — 快速侦察 |
+| "ProxyCat/代理池/IP 轮换" | `pentest-tools/SKILL.md` — 代理管理 |
 
 ## 按工具链
 
@@ -99,7 +138,7 @@
 | radare2 (r2/rabin2/rasm2) | `radare2/` — CLI + recon.ps1 |
 | jadx / apktool | `apk-reverse/` — decode.ps1 / manifest-summary.ps1 |
 | Frida | `reverse-engineering/tools-dynamic.md` |
-| GDB / pwndbg / rr | `reverse-engineering/tools.md` |
+| GDB / GEF / pwndbg / rr | `reverse-engineering/tools.md`（Kali 2026.1: `apt install gef`） |
 | Ghidra (headless) | `reverse-engineering/tools.md` + Ghidra MCP（免费 IDA 替代，可通过 bootstrap 自动注册） |
 | angr / Qiling / Unicorn | `reverse-engineering/tools-dynamic.md` |
 | BinDiff / Diaphora | `reverse-engineering/tools-advanced.md` |
@@ -114,8 +153,32 @@
 | Nmap / Masscan | `pentest-tools/` — 端口扫描、服务识别 |
 | Nuclei / ZAP / Nikto | `pentest-tools/` — 漏洞扫描 |
 | SQLMap / FFUF / Gobuster | `pentest-tools/` — Web 渗透（注入/爆破） |
+| SSTImap | `pentest-tools/` — SSTI 自动检测与利用（Kali 2026.1: `apt install sstimap`） |
+| XSStrike | `pentest-tools/` — 高级 XSS 扫描（Kali 2026.1: `apt install xsstrike`） |
+| WPProbe | `pentest-tools/` — WordPress 插件枚举（Kali 2026.1: `apt install wpprobe`） |
 | Hashcat / John / Hydra | `pentest-tools/` — 密码破解 |
 | Metasploit / Impacket | `pentest-tools/` — 利用框架 |
+| MetasploitMCP | `pentest-tools/` — Metasploit MCP 接口（Kali 2026.1: `apt install metasploitmcp`） |
+| mcp-kali-server | `pentest-tools/` — Kali 官方 MCP，AI 直接调用终端工具（`apt install mcp-kali-server`） |
+| HexStrike AI | `pentest-tools/` — 150+ 安全工具 MCP 自动化（Kali 2025.4: `apt install hexstrike-ai`） |
+| Pentest Swarm AI | `pentest-tools/` — 群体智能自主渗透框架，stigmergic blackboard 协调多 agent（`go install` 或 Docker） |
+| AdaptixC2 | `pentest-tools/` — 后渗透与对抗模拟框架（Kali 2026.1: `apt install adaptixc2`） |
+| Atomic-Operator | `pentest-tools/` — Atomic Red Team 测试执行（Kali 2026.1） |
+| Coercer | `pentest-tools/` — Windows 认证强制/NTLM relay（`apt install coercer`） |
+| NetExec (nxc) | `pentest-tools/` — 网络服务枚举与利用，CrackMapExec 继任（Kali 预装） |
+| evil-winrm-py | `pentest-tools/` — Python WinRM 远程执行（Kali 2025.4） |
+| Fluxion / aircrack-ng | `pentest-tools/` — WiFi 安全审计与破解（Kali 预装 aircrack-ng，2026.1 新增 fluxion） |
+| Responder | `pentest-tools/` — LLMNR/NBT-NS/MDNS 投毒（Kali 预装） |
+| BloodHound | `pentest-tools/` — AD 攻击路径可视化（`apt install bloodhound`） |
+| Certipy | `pentest-tools/` — AD 证书服务攻击（`apt install certipy-ad`） |
+| CrackMapExec / NetExec | `pentest-tools/` — 网络服务枚举（nxc 为 CME 继任，Kali 预装） |
+| wfuzz | `pentest-tools/` — Web 参数模糊测试（Kali 预装） |
+| Wireshark / tshark | `pentest-tools/` — 网络协议分析与 PCAP 解析（Kali 预装） |
+| BurpSuite | `pentest-tools/` — Web 代理、拦截、漏洞扫描（Kali 预装 Community 版） |
+| ProxyCat | `pentest-tools/` — 代理池管理与 IP 轮换 |
+| objdump / strings / file | `reverse-engineering/` — 基础静态分析（Kali 预装） |
+| Cobalt Strike / Sliver / Havoc | `attack-chain/` — C2 框架选择与部署 |
+| Rubber Ducky / WiFi Pineapple / Proxmark3 | `attack-chain/` — 近源渗透硬件 |
 | pentestMCP (Docker) | `pentest-tools/` — 20+ 工具一键 MCP |
 | Mermaid / Graphviz / PlantUML | `diagram-generator/` — 图表生成（流程图/时序图/架构图/攻击路径） |
 

@@ -156,3 +156,83 @@ flowchart LR
     NewTask([下次同类任务]) --> ReadIdx[读取 _index.md]
     ReadIdx --> Reuse[复用已有经验<br/>避免重复踩坑]
 ```
+
+## 多平台支持架构
+
+```mermaid
+flowchart TD
+    subgraph 共享层["共享层（平台无关）"]
+        Skills[skills/<br/>SKILL.md + routing.md + references]
+        CTF[CTF-Sandbox-Orchestrator/<br/>40+ 子技能]
+        Journal[field-journal/<br/>经验沉淀]
+        Docs[docs-generator + diagram-generator]
+    end
+
+    subgraph Windows["Windows 平台层"]
+        WinScripts[skills/scripts/*.ps1<br/>PowerShell 脚本]
+        WinManifest[bootstrap-manifest.json<br/>winget + GitHub ZIP]
+        WinRules[RULES.md<br/>Windows 版规则]
+    end
+
+    subgraph Kali["Kali Linux 平台层"]
+        KaliScripts[kali/scripts/*.sh<br/>Bash 脚本]
+        KaliManifest[kali/scripts/bootstrap-manifest.json<br/>apt + pip + GitHub tar]
+        KaliRules[kali/RULES-kali.md<br/>Kali 版规则]
+    end
+
+    Skills --> WinScripts & KaliScripts
+    CTF --> WinScripts & KaliScripts
+    Journal --> WinScripts & KaliScripts
+
+    WinScripts --> WinManifest
+    KaliScripts --> KaliManifest
+
+    WinRules --> Skills
+    KaliRules --> Skills
+```
+
+### 平台选择逻辑
+
+| 环境 | 使用的规则文件 | 使用的脚本 | 包管理 |
+|------|--------------|-----------|--------|
+| Windows | `RULES.md` | `skills/scripts/*.ps1` | winget / GitHub Release ZIP |
+| Kali Linux | `kali/RULES-kali.md` | `kali/scripts/*.sh` | apt / pip / npm / GitHub tar.gz |
+
+### Kali 版特点
+
+- **大量工具预装**：nmap、sqlmap、hashcat、hydra、metasploit、radare2、binwalk、burpsuite 等无需 bootstrap
+- **apt 统一管理**：不需要 winget、不需要手动解压 ZIP
+- **bash 原生**：脚本更简洁，无 PowerShell 依赖
+- **路径规范**：`/usr/bin/`、`/opt/`、`~/tools/`，无盘符和空格问题
+
+## 文件读取时序图
+
+```mermaid
+sequenceDiagram
+    participant U as 用户
+    participant AI as AI客户端
+    participant R as RULES.md / RULES-kali.md
+    participant SK as SKILL.md
+    participant RT as routing.md
+    participant TI as tool-index.md
+    participant FJ as field-journal
+    participant SUB as 子skill
+    participant BS as bootstrap
+    participant DOC as docs-generator
+
+    U->>AI: 提出安全任务
+    AI->>R: 读取路由规则
+    AI->>SK: 读取总控入口
+    AI->>RT: 路由匹配
+    AI->>FJ: 查同类经验
+    AI->>TI: 确认工具状态
+    alt 工具缺失
+        AI->>BS: 自动安装（.ps1 或 .sh）
+        BS-->>AI: 结果
+    end
+    AI->>SUB: 进入工作流
+    AI-->>U: 任务结果
+    AI->>DOC: 生成报告
+    AI->>FJ: 回写经验
+    AI-->>U: 完成
+```
