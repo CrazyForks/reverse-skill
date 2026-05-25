@@ -32,6 +32,9 @@
 - [种子] Go 恶意软件逆向（stripped+Garble）— 关键词: Go, Garble, GoReSym, GoResolver, C2, AES密钥
 - [2026-05-15] lumine v0.9.1 Go TLS 分片代理逆向 — 关键词: Go, TLS, 分片代理, GoReSym, 源码重建, PE32+, capstone
 
+### 游戏逆向
+- [种子] Unity IL2CPP 还原 + Frida hook — 关键词: Unity, IL2CPP, Il2CppDumper, frida-il2cpp-bridge, global-metadata, Android 游戏
+
 ### CTF / Pwn
 - [种子] CTF Pwn x64 栈溢出 + ROP → system — 关键词: pwn, x64, ROP, ret2libc, pwntools, pwndbg, ROPgadget, libc-database, 栈对齐
 
@@ -51,6 +54,7 @@
 - [种子] XXE 盲注 OOB 外带 — 关键词: XXE, OOB, 外部 DTD, 参数实体, php://filter, docx 上传, 内网 SSRF
 - [2026-05-16] personalblog.fun Mass Assignment 提权 — 关键词: Spring Boot, MyBatis-Plus, SaToken, Mass Assignment, Swagger泄露, 权限提升, Vue SPA, temp mail, JS静态分析, 前端路由绕过, DTO缺失, 限速绕过
 - [2026-05-17] Vue SPA + Spring Boot 后台 Web 渗透（API Key 硬编码 / admin_path 泄露 / Actuator）— 关键词: API Key硬编码, Vue SPA静态分析, admin_path泄露, 验证码禁用, Actuator, Cloudflare WAF, Vite bundle
+- [2026-05-25] CF Access 兄弟子域配置错误 + Cookie 投毒 → Session Fixation — 关键词: Cloudflare Access, Zero Trust, CF Worker, 兄弟子域, wildcard证书, Set-Cookie透传, 父域cookie, Session Fixation, data URI XSS, 响应头注入, Open Proxy, Email OTP, CT日志, certspotter
 
 ### 云 / 容器 / K8s
 - [种子] 容器逃逸 → K8s 集群接管 — 关键词: 特权容器, cap_sys_admin, docker.sock, K8s SA token, hostPath, deepce, kdigger, peirates, CVE-2022-0492, DirtyPipe
@@ -91,10 +95,10 @@
 
 ## 累计统计
 
-- 总项目数: 19（含 16 个种子 + 3 个真实项目）
-- 新增模式数: 24
+- 总项目数: 21（含 17 个种子 + 4 个真实项目）
+- 新增模式数: 27
 - 工具链修复数: 0
-- 最近更新: 2026-05-19
+- 最近更新: 2026-05-25
 
 ---
 
@@ -105,6 +109,7 @@
 ### Frida / 动态插桩
 - OkHttp 证书校验绕过 — `seed-008_apk-okhttp-ssl-pin-bypass.md`
 - 越狱检测绕过 — `seed-009_ios-jailbreak-detect-bypass.md`
+- IL2CPP method hook — `seed-014_unity-il2cpp-reverse.md`
 - root 检测绕过 — _尚无_
 
 ### Web 渗透
@@ -115,6 +120,10 @@
 - SSRF → 云元数据 → AK/SK — `seed-006_ssrf-cloud-metadata.md`
 - Log4Shell / JNDI 注入 — `seed-012_log4shell-jndi-rce.md`
 - XXE OOB 外带 — `seed-017_xxe-oob-exfil.md`
+- **CF Access 兄弟子域绕过(wildcard 证书 + Application 单子域)** — `2026-05-25_pentest-cf-access-sibling-subdomain-cookie-poisoning.md`
+- **跨子域 Cookie 投毒 / Session Fixation(代理透传 Set-Cookie)** — `2026-05-25_pentest-cf-access-sibling-subdomain-cookie-poisoning.md`
+- **HTTP 代理类目标 7 道检测**(Set-Cookie 透传 / 响应头透传 / data: scheme / POST 透传 / scheme 白名单 / redirect 跟随 / 缓存键) — `2026-05-25_pentest-cf-access-sibling-subdomain-cookie-poisoning.md`
+- **data: URI 反射型 XSS(合法域钓鱼)** — `2026-05-25_pentest-cf-access-sibling-subdomain-cookie-poisoning.md`
 
 ### Active Directory
 - AD CS ESC1 → DCSync — `seed-005_ad-certipy-esc1.md`
@@ -161,6 +170,7 @@
 - KSAd / Kuaishou 广告 SDK — `2026-05-15-cellular-pro-mumu-ksad-fragment-fix.md`
 - MuMu 模拟器适配 — `2026-05-15-cellular-pro-mumu-ksad-fragment-fix.md`
 - OkHttp + 自定义 CertificatePinner — `seed-008_apk-okhttp-ssl-pin-bypass.md`
+- Unity IL2CPP 游戏 — `seed-014_unity-il2cpp-reverse.md`
 
 ### iOS
 - 越狱检测 + SSL Pin 双重防护 — `seed-009_ios-jailbreak-detect-bypass.md`
@@ -178,6 +188,8 @@
 - 云元数据接口 (169.254.169.254) — `seed-006_ssrf-cloud-metadata.md`
 - AD CS — `seed-005_ad-certipy-esc1.md`
 - WAF (Cloudflare) — `2026-05-17_pentest-vue-spa-actuator-leak.md`
+- **Cloudflare Access / Zero Trust(Email OTP, wildcard 子域配置错误)** — `2026-05-25_pentest-cf-access-sibling-subdomain-cookie-poisoning.md`
+- **Cloudflare Worker(`fetch` 自动拦私有 IP,Set-Cookie 透传)** — `2026-05-25_pentest-cf-access-sibling-subdomain-cookie-poisoning.md`
 - Docker / containerd / K8s — `seed-016_k8s-container-escape.md`
 
 ### 硬件 / 固件

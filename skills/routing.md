@@ -88,7 +88,7 @@
 | "Mermaid/Graphviz/PlantUML" | `diagram-generator/SKILL.md` — 图表生成 |
 | "恶意软件/病毒分析/样本分析" | `reverse-engineering/SKILL.md` — 通用逆向 + YARA/沙箱 |
 | "Go 逆向/Rust 逆向/stripped" | `reverse-engineering/languages-compiled.md` + `go-reverse.md` |
-| "固件/IoT/binwalk/ARM" | `reverse-engineering/platforms-hardware.md` |
+| "固件/IoT/binwalk/ARM" | `firmware-pentest/SKILL.md` — 固件全链路分析（与按目标类型表一致） |
 | "密码学/加解密/AES/RSA" | `reverse-engineering/patterns*.md` — 密码学模式识别 |
 | "协议逆向/Protobuf/自定义协议" | `reverse-engineering/platforms.md` — 网络协议分析 |
 | "内存转储/dump 分析" | `reverse-engineering/platforms.md` |
@@ -104,7 +104,7 @@
 | "SSTI/模板注入" | `pentest-tools/SKILL.md` — SSTImap 自动检测 |
 | "XSS 扫描/跨站脚本" | `pentest-tools/SKILL.md` — XSStrike 高级扫描 |
 | "WordPress 渗透/WP 枚举" | `pentest-tools/SKILL.md` — WPProbe 插件枚举 |
-| "C2 框架/对抗模拟/红队" | `pentest-tools/SKILL.md` — AdaptixC2 |
+| "C2 框架/对抗模拟/AdaptixC2" | `pentest-tools/SKILL.md` — AdaptixC2 后渗透与对抗模拟框架 |
 | "Atomic Red Team/检测测试" | `pentest-tools/SKILL.md` — Atomic-Operator |
 | "WiFi 攻击/无线渗透" | `pentest-tools/SKILL.md` — Fluxion + aircrack-ng |
 | "NTLM relay/认证强制" | `pentest-tools/SKILL.md` — Coercer |
@@ -117,7 +117,7 @@
 | "红队/攻防演练/HW" | `attack-chain/SKILL.md` — 完整攻击链编排（信息收集→突破→提权→横向→维持） |
 | "打点/初始突破/边界突破" | `attack-chain/SKILL.md` — 边界突破阶段 |
 | "近源渗透/BadUSB/WiFi钓鱼" | `attack-chain/SKILL.md` — 近源渗透章节 |
-| "EDR 绕过/免杀/AV bypass" | `attack-chain/SKILL.md` — EDR/AV 绕过章节 |
+| "投递免杀/实战绕过EDR/Shellcode加载器" | `attack-chain/SKILL.md` — 攻击链中的 EDR/AV 绕过（实战投递阶段） |
 | "钓鱼/社工/邮件钓鱼" | `attack-chain/SKILL.md` — 钓鱼攻击章节 |
 | "供应链攻击" | `attack-chain/SKILL.md` — 供应链攻击章节 |
 | "痕迹清理/反取证" | `attack-chain/SKILL.md` — 痕迹清理章节 |
@@ -150,7 +150,7 @@
 | radare2 (r2/rabin2/rasm2) | `radare2/` — CLI + recon.ps1 |
 | jadx / apktool | `apk-reverse/` — decode.ps1 / manifest-summary.ps1 |
 | Frida | `reverse-engineering/tools-dynamic.md` |
-| GDB / GEF / pwndbg / rr | `reverse-engineering/tools.md`（Kali 2026.1: `apt install gef`） |
+| GDB / rr（通用调试） | `reverse-engineering/tools.md` |
 | Ghidra (headless) | `reverse-engineering/tools.md` + Ghidra MCP（免费 IDA 替代，可通过 bootstrap 自动注册） |
 | angr / Qiling / Unicorn | `reverse-engineering/tools-dynamic.md` |
 | BinDiff / Diaphora | `reverse-engineering/tools-advanced.md` |
@@ -191,7 +191,7 @@
 | BurpSuite MCP | `pentest-tools/` — 63 工具 AI 全控制（代理历史/Intruder/Repeater/Scanner/Collaborator），参见 `references/burpsuite-mcp-guide.md` |
 | ProxyCat | `pentest-tools/` — 代理池管理与 IP 轮换 |
 | objdump / strings / file | `reverse-engineering/` — 基础静态分析（Kali 预装） |
-| Cobalt Strike / Sliver / Havoc | `attack-chain/` — C2 框架选择与部署 |
+| Cobalt Strike / Sliver / Havoc / Mythic | `pentest-tools/` — C2 框架工具（与 AdaptixC2 同模块） |
 | Rubber Ducky / WiFi Pineapple / Proxmark3 | `attack-chain/` — 近源渗透硬件 |
 | pentestMCP (Docker) | `pentest-tools/` — 20+ 工具一键 MCP |
 | Mermaid / Graphviz / PlantUML | `diagram-generator/` — 图表生成（流程图/时序图/架构图/攻击路径） |
@@ -220,11 +220,11 @@
 
 ```
 APK 逆向路径：
-  apk-reverse/decode.ps1 → Java 层分析
+  apk-reverse/scripts/decode.ps1 → Java 层分析
   ↓ 如果核心在 .so
   ida-reverse/ 或 radare2/ → so 分析
   ↓ 如果需动态验证
-  apk-reverse/frida-run.ps1 → Frida Hook
+  apk-reverse/scripts/frida-run.ps1 → Frida Hook
 
 前端 JS 逆向路径：
   js-reverse/Observe → 定位目标请求
@@ -236,7 +236,7 @@ APK 逆向路径：
   js-reverse/references/env-patching.md
 
 二进制逆向路径：
-  radare2/recon.ps1 → 快速侦察
+  radare2/scripts/recon.ps1 → 快速侦察
   ↓ 深度分析
   ida-reverse/ → IDA 反编译
   ↓ 动态验证

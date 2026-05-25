@@ -348,7 +348,7 @@
 powershell -NoProfile -ExecutionPolicy Bypass -File "<本包根目录>/skills/scripts/bootstrap-reverse.ps1" -Capability @('工具名') -StartServices
 ```
 
-支持的能力名：jadx、apktool、frida、idalib-mcp、jshookmcp、anything-analyzer、idapro、r2、rabin2、adb、agent-browser、ghidra-mcp、nmap、proxycat、burpsuite-mcp
+支持的能力名：jadx、apktool、frida、idalib-mcp、jshookmcp、anything-analyzer、idapro、r2、rabin2、adb、agent-browser、ghidra-mcp、nmap、proxycat、burpsuite-mcp、binwalk、unblob、emba、firmadyne、qemu-static、pwntools、ropgadget、one_gadget、bindiff、ghidriff、syswhispers3、pe-sieve
 
 ## 刷新工具索引
 
