@@ -58,6 +58,17 @@ sudo bash kali/scripts/quick-setup.sh
 
 ---
 
+
+### 0.1 对齐原则
+
+Kali 专属入口不是 Windows README 的简单复制，而是 **同一套核心能力名 + Kali 额外能力**：
+
+- Windows：`skills/scripts/bootstrap-reverse.ps1`
+- Kali：`kali/scripts/bootstrap-reverse.sh`
+- 普通 Linux/macOS：`skills/scripts/bootstrap-reverse.sh`
+
+Kali 脚本应覆盖 Windows manifest 中的核心能力名，例如 `jadx`、`apktool`、`frida`、`jshookmcp`、`anything-analyzer`、`idapro`、`r2`、`adb`、`ghidra-mcp`、`seclists`、`burpsuite-mcp`、`nmap`、`pentestswarm`；同时可以额外支持 Kali 原生工具，例如 `mcp-kali-server`、`metasploitmcp`、`hexstrike-ai`、`sstimap`、`xsstrike`、`netexec` 等。
+
 ## 🎯 为什么要用 Kali 版？
 
 | 对比项 | 通用版（Windows） | Kali 专供版 |
@@ -120,7 +131,6 @@ cybersecurity-skills-router/
 │       ├── quick-setup.sh         # 一键初始化
 │       ├── bootstrap-reverse.sh   # 工具安装/补齐
 │       ├── refresh-tool-index.sh  # 刷新工具索引
-│       ├── ida-start.sh           # IDA MCP 启动
 │       ├── bootstrap-manifest.json
 │       └── lib/
 │           └── tool-discovery.sh  # 工具发现库
@@ -169,7 +179,7 @@ bash kali/scripts/bootstrap-reverse.sh coercer evil-winrm-py netexec responder  
 kali-server-mcp --port 5000                    # Kali 官方 MCP
 metasploitmcp --transport stdio                # Metasploit MCP (stdio 模式)
 metasploitmcp --transport http --port 8085     # Metasploit MCP (HTTP 模式)
-bash kali/scripts/ida-start.sh                 # IDA Pro MCP
+bash kali/scripts/bootstrap-reverse.sh idapro --start-services  # 注册/检查 IDA MCP；Linux 版 IDA 仍需本机手动启动
 
 # ─── 验证 ───
 cat skills/tool-index.md                       # 查看工具状态

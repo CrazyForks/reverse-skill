@@ -1,11 +1,11 @@
 # Cybersecurity Skills Router — Kali Linux 专供版
 
 > 本目录是 Kali Linux 2026.1 优化适配层。基于 2026 年 3 月发布的 Kali 2026.1（内核 6.18）进行专项优化。
-> 核心知识库（skills/、CTF-Sandbox-Orchestrator/）与 Windows 版共享，只有脚本和安装方式不同。
+> 核心知识库（skills/、CTF-Sandbox-Orchestrator/）与 Windows 版共享；Kali 专属 README 和 Bash 入口需要覆盖 Windows 核心能力名，同时额外提供 Kali 原生工具/MCP 能力。
 
 ---
 
-## 0. 与 Windows 版的关系
+## 0. 与 Windows 版的关系（能力名对齐）
 
 ```text
 项目根目录/
@@ -23,6 +23,17 @@
 ├── RULES.md                   # Windows 版规则
 └── Readme.md                  # Windows 版说明
 ```
+
+
+### 0.1 对齐原则
+
+Kali 专属入口不是 Windows README 的简单复制，而是 **同一套核心能力名 + Kali 额外能力**：
+
+- Windows：`skills/scripts/bootstrap-reverse.ps1`
+- Kali：`kali/scripts/bootstrap-reverse.sh`
+- 普通 Linux/macOS：`skills/scripts/bootstrap-reverse.sh`
+
+Kali 脚本应覆盖 Windows manifest 中的核心能力名，例如 `jadx`、`apktool`、`frida`、`jshookmcp`、`anything-analyzer`、`idapro`、`r2`、`adb`、`ghidra-mcp`、`seclists`、`burpsuite-mcp`、`nmap`、`pentestswarm`；同时可以额外支持 Kali 原生工具，例如 `mcp-kali-server`、`metasploitmcp`、`hexstrike-ai`、`sstimap`、`xsstrike`、`netexec` 等。
 
 **共享的部分**（不需要改动）：
 - 所有 `SKILL.md`、`routing.md`
@@ -202,7 +213,7 @@ bash kali/scripts/bootstrap-reverse.sh idapro --start-services
 | 路径分隔符 | `\` | `/` |
 | 环境变量 | `%USERPROFILE%` | `$HOME` |
 | 预装工具 | 几乎没有 | 大量安全工具预装 |
-| IDA 启动 | `start.ps1` | `start.sh`（如果有 Linux 版 IDA） |
+| IDA 启动 | `start.ps1` | 手动启动 Linux 版 IDA；脚本只注册/检查 MCP，除非本机自行补了 launcher |
 | MCP 配置路径 | `%USERPROFILE%\.claude\mcp.json` | `~/.claude/mcp.json` |
 | 端口检测 | `TcpClient` | `nc -z` 或 `ss` |
 
@@ -272,7 +283,7 @@ nc -z 127.0.0.1 23816 && echo "anything-analyzer OK" || echo "anything-analyzer 
 ```bash
 # 用官方源安装最新版
 bash kali/scripts/bootstrap-reverse.sh r2
-# 这会从 GitHub Release 下载最新 Linux 版本
+# Kali 版默认优先 apt 安装/补齐 radare2；如需最新版可按平台文档改用 GitHub/source
 ```
 
 ### Q: 我用的是 Parrot OS / BlackArch，能用吗？

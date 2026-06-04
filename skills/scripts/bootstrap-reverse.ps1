@@ -442,7 +442,7 @@ function Ensure-Capability {
             if ($Name -eq 'idapro') {
                 Ensure-Capability -Name 'idalib-mcp'
                 Ensure-McpServer -ServerName 'idapro' -ServerDefinition @{ url = $definition.mcpUrl }
-                if ($StartServices -or -not (Test-ReverseTcpPort -Port ([int]$definition.servicePort))) {
+                if ($StartServices) {
                     Start-IdaProService -Definition $definition
                 }
                 return $true

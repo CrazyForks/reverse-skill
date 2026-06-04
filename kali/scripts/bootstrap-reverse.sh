@@ -25,6 +25,11 @@ for arg in "$@"; do
     case "$arg" in
         --start-services) START_SERVICES=true ;;
         --skip-refresh) SKIP_REFRESH=true ;;
+        --list|-l)
+            echo "jadx apktool frida frida-ps idalib-mcp jshookmcp anything-analyzer idapro r2 rabin2 adb agent-browser ghidra-mcp seclists proxycat burpsuite-mcp nmap pentestswarm"
+            echo "mcp-kali-server metasploitmcp hexstrike-ai adaptixc2 atomic-operator sstimap xsstrike wpprobe fluxion gef coercer evil-winrm-py netexec responder bloodhound certipy"
+            exit 0
+            ;;
         -*) echo "未知选项: $arg"; exit 1 ;;
         *) CAPABILITIES+=("$arg") ;;
     esac
