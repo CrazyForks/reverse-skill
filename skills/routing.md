@@ -21,7 +21,7 @@ Route tasks to the most appropriate skill module by target type, user intent, an
 | Firmware / IoT | `reverse-engineering/platforms.md` — binwalk/ARM/MIPS | `reverse-engineering/tools.md` — Ghidra headless |
 | WASM / Python bytecode / .NET | `reverse-engineering/languages.md` | Check specific language section |
 | macOS / iOS | `reverse-engineering/platforms.md` — Mach-O/ObjC/Swift | `mobile-reverse/` for iOS-specific |
-| Game (Unity/Unreal) | `reverse-engineering/` — engine reverse, anti-cheat, IL2CPP/Mono (see seed-014) | `ida-reverse/` deep analysis |
+| Game (Unity) | `reverse-engineering/` — engine reverse, anti-cheat, IL2CPP/Mono (see seed-014) | `ida-reverse/` deep analysis |
 | Memory dump / PCAP | `reverse-engineering/platforms.md` | `reverse-engineering/patterns*.md` |
 | Malware / virus sample | `reverse-engineering/` — YARA/sandbox/behavior analysis | `ida-reverse/` deep analysis |
 | OLLVM-obfuscated binary (控制流平坦化/虚假控制流/MBA) | `reverse-engineering/references/ollvm-deobfuscation.md` — 完整脱密工作流 | obpo-plugin / d810-ng (IDA) / ollvm-unflattener (Miasm) / ollvm-breaker (Binary Ninja) / angr / deollvm (ARM64)
@@ -71,9 +71,8 @@ Route tasks to the most appropriate skill module by target type, user intent, an
 | "open webpage / browser automation / fill form" | `browser-automation/SKILL.md` — Playwright |
 | "crawl page / screenshot / auto login" | `browser-automation/SKILL.md` |
 | "desktop automation / Windows automation" | `browser-automation/SKILL.md` — OpenReverse |
-| "game reverse / anti-cheat / hack analysis" | `reverse-engineering/SKILL.md` — game reverse (IL2CPP/Unity/Unreal/Cheat Engine) |
+| "game reverse / anti-cheat / hack analysis" | `reverse-engineering/SKILL.md` — game reverse (IL2CPP/Unity/Cheat Engine) |
 | "Unity / IL2CPP / Mono" | `reverse-engineering/SKILL.md` — Unity + `seed-014_unity-il2cpp-reverse.md` |
-| "Unreal Engine / UE reverse" | `reverse-engineering/SKILL.md` — Unreal Engine reverse |
 | "Cheat Engine / memory scan" | `reverse-engineering/SKILL.md` — Cheat Engine memory analysis |
 | "symbol migration / cross-version compare" | `binary-diff/SKILL.md` — LLM batch migration |
 | "missing PDB / old version symbols" | `binary-diff/SKILL.md` — cross-version symbol migration |
