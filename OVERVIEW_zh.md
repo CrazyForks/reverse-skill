@@ -2,7 +2,7 @@
 
 > 面向代码 Agent 的安全任务路由与工具编排系统：先判断任务，再选择 Skill，最后调用真实工具执行。
 
-如果你是第一次看到这个仓库，请先读这份文档。`README.md` / `README_zh.md` 是给 AI Agent 执行 bootstrap 的入口，指令密度高、执行顺序靠前；这份文档则给人类读者、开源用户和协作者快速理解项目价值。
+如果你是第一次看到这个仓库，请先读这份文档。`README_AI.md` 是给 AI Agent 执行 bootstrap 的入口。
 
 ## 这个项目是什么
 
@@ -61,7 +61,7 @@ Skill Router
 
 | 平台 | 状态 | 入口 |
 |---|---|---|
-| Windows | 完整主线 | `README_zh.md`、PowerShell 脚本 |
+| Windows | 完整主线 | `README.md`、PowerShell 脚本 |
 | Kali Linux | 专项适配 | `kali/README-kali.md` |
 | Ubuntu / Debian Linux | 通用适配 | `docs/platforms/linux.md`、`skills/scripts/bootstrap-reverse.sh`、`skills/scripts/refresh-tool-index.sh` |
 | macOS | 通用适配 | `docs/platforms/macos.md`、`skills/scripts/bootstrap-reverse.sh`、`skills/scripts/refresh-tool-index.sh` |
@@ -127,10 +127,11 @@ bash skills/scripts/refresh-tool-index.sh
 
 ```text
 .
-├── README.md                    # AI Agent bootstrap 入口（英文）
-├── README_zh.md                 # AI Agent bootstrap 入口（中文）
-├── OVERVIEW.md                  # 人类友好概览（英文）
-├── OVERVIEW_zh.md               # 人类友好概览（中文）
+├── README.md                    # 主入口（中文）
+├── README_EN.md                 # 主入口（英文）
+├── README_AI.md                 # AI Agent bootstrap 入口（英文）
+├── OVERVIEW.md                  # 详细概览（英文）
+├── OVERVIEW_zh.md               # 详细概览（中文）
 ├── RULES.md                     # 全局路由与执行规则
 ├── ARCHITECTURE.md              # 架构说明
 ├── skills/                      # 主 Skill 目录
@@ -153,7 +154,7 @@ bash skills/scripts/refresh-tool-index.sh
 ### 人类用户
 
 1. 先读本文件，理解项目定位；
-2. 再读 `README_zh.md` 或 `README.md`，让 AI Agent 执行 bootstrap；
+2. 再读 `README.md`，让 AI Agent 执行 bootstrap；
 3. 根据你的客户端配置 MCP、Rules 或项目级指令；
 4. 用一个真实任务验证路由是否生效。
 
@@ -161,7 +162,7 @@ bash skills/scripts/refresh-tool-index.sh
 
 如果你是 AI Agent，不要停在概览。请进入执行入口：
 
-1. 读取 `README.md` 或 `README_zh.md`；
+1. 读取 `README_AI.md`；
 2. 执行其中的第 0 节；
 3. 读取 `RULES.md`；
 4. 加载 `skills/SKILL.md` 和 `skills/routing.md`；
@@ -195,8 +196,8 @@ bash skills/scripts/refresh-tool-index.sh
 
 ## 相关文档
 
-- [README.md](README.md)：英文 AI bootstrap 入口
-- [README_zh.md](README_zh.md)：中文 AI bootstrap 入口
+- [README.md](README.md)：主入口（中文）
+- [README_AI.md](README_AI.md)：AI bootstrap 入口（英文）
 - [PLATFORMS.md](PLATFORMS.md)：平台支持总览
 - [docs/platforms/linux.md](docs/platforms/linux.md)：普通 Linux 适配
 - [docs/platforms/macos.md](docs/platforms/macos.md)：macOS 适配
